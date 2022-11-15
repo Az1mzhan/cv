@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+body
+{
+    font-family: 'Sora', sans-serif !important;
+}
+
+table
+{
+    margin-top: 2.5vh;
+}
+
+th
+{
+    background-color: rgba(128, 128, 128, 0.46) !important;
+}
+
+a
+{
+    color: rgba(0, 0, 0, 0.8) !important;
+}
+
+dt
+{
+    margin-left: 2.5vh;
+}
+
+dd
+{
+    padding-left: 5vh;
+}
+
+.list-name
+{
+    background-color: rgba(128, 128, 128, 0.46);
+    width: 37.5vh;
+    padding-top: 1.25vh;
+    margin-top: 2.5vh;
+    margin-left: 2.5vh;
+}
+
+#nav
+{
+    /*background-color: rgba(0, 0, 128, 0.91);*/
+    background-color: rgba(25, 25, 112, 0.94);
+    color: aliceblue;
+    height: 25vh;
+}
+
+#pfp
+{
+    margin-left: 2.5vh;
+    padding: 0;
+    width: 150px;
+    height: 150px;
+    border: 2px solid gray;
+}
+
+#fullname, #pfp
+{
+    margin-top: 2.5vh;
+}
+
+#main-content
+{
+    height: 75vh;
+}
+
+#main-panel
+{
+    background-color: white;
+}
+
+#side-panel
+{
+    background-color: rgba(211, 211, 211, 0.35);
+    padding: 0;
+}
