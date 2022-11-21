@@ -31,6 +31,11 @@ dd
     padding-left: 5vh;
 }
 
+form
+{
+    margin-top: 3vh;
+}
+
 .list-name
 {
     background-color: rgba(128, 128, 128, 0.46);
@@ -38,6 +43,16 @@ dd
     padding-top: 1.25vh;
     margin-top: 2.5vh;
     margin-left: 2.5vh;
+}
+
+.data-header, .data-text
+{
+    margin: 0;
+}
+
+.form-block
+{
+    padding-top: 2.5vh;
 }
 
 #nav
@@ -62,6 +77,22 @@ dd
     margin-top: 2.5vh;
 }
 
+#sp-link
+{
+    margin-top: 20vh;
+}
+
+#sp-link2
+{
+    margin-top: 5vh;
+    font-weight: bold;
+}
+
+#sp-add
+{
+    color: aliceblue !important;
+}
+
 #main-content
 {
     height: 75vh;
@@ -76,4 +107,60 @@ dd
 {
     background-color: rgba(211, 211, 211, 0.35);
     padding: 0;
+}
+
+#form
+{
+    margin-top: 12.5vh;
+}
+
+#return
+{
+    margin-left: 6.375vh;
+}
+
+#submit
+{
+    margin-top: 2.5vh;
+}
+
+#user-block
+{
+    padding-bottom: 3.75vh;
+}
+
+#data-delimiter
+{
+    border-bottom: .05vh solid black;
+    margin-bottom: 1.25vh;
+}
+
+/*Main page animation*/
+
+#main-page
+{
+    position: relative;
+    animation: page-blur 1s linear;
+}
+
+@keyframes page-blur
+{
+    0% {-webkit-filter: blur(3vh)}
+    50% {-webkit-filter: blur(1.5vh)}
+    100% {-webkit-filter: blur(0vh)}
+}
+
+/*Form animation*/
+
+form, #form-span
+{
+    position: relative;
+    animation: slide .5s linear;
+}
+
+@keyframes slide
+{
+    0% {left: -50%; -webkit-filter: blur(3vh)}
+    50% {left: -25%; -webkit-filter: blur(1.5vh)}
+    100% {left: 0%; -webkit-filter: blur(0vh)}
 }

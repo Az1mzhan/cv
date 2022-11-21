@@ -7,81 +7,137 @@
     <link href="style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row" id="nav">
-            <div class="col-2">
-                <img src="pfp.jpg" class="text-centerg" id="pfp">
+    <div class="container-fluid" id="app">
+        <div id="main-page" v-if="id == 0">
+            <div class="row" id="nav">
+                <div class="col-2">
+                    <img src="pfp.jpg" class="text-center" id="pfp">
+                </div>
+                <div class="col-9" id="fullname">
+                    <h1><strong>Azimzhan Mussabayev</strong></h1>
+                    <i id="role">Freshman of Astana IT University</i>
+                    <div class="row">
+                        <div class="col-1">
+                            <p class="data-header">Phone: </p>
+                            <p class="data-header">Address: </p>
+                            <p class="data-header">Email: </p>
+                        </div>
+                        <div class="col-11">
+                            <p class="data-text">+44 (7975) 777-666</p>
+                            <p class="data-text">221b Baker Street, London</p>
+                            <p class="data-text">azimzhaan@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <p id="sp-link"><a href="#" id="sp-add" @click="sideToggle">Form >></a></p>
+                </div>
             </div>
-            <div class="col-10" id="fullname">
-                <h2><strong>Azimzhan Mussabayev</strong></h2>
-                <i id="role">Sophomore of Astana IT University</i>
-                <div class="row">
-                    <div class="col-1">
-                        <p>Phone: <br> Address: <br> Email:</p>
-                    </div>
-                    <div class="col-11">
-                        <p>+44 (7975) 777-666 <br> 221b Baker Street, London <br> azimzhaan@gmail.com </p>
-                    </div>
+            <div class="row" id="main-content">
+                <div class="col-9" id="main-panel">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Company</th>
+                            <th>Vacancy</th>
+                            <th>Duration of work</th>
+                        </tr>
+                        <tr>
+                            <td>BTS</td>
+                            <td>Junior Front-end developer</td>
+                            <td>2 years</td>
+                        </tr>
+                    </table>
+                    <h6 class="list-name"><b>SOCIAL NETWORKS</b></h6>
+                    <ul>
+                        <li><a href="https://github.com/Az1mzhan">Github</a></li>
+                        <li><a href="https://t.me/Az1mzhan">Telegram</a></li>
+                        <li><a href="https://wa.me/77782223678">WhatsApp</a></li>
+                    </ul>
+                    <h6 class="list-name"><b>EXPERIENCE</b></h6>
+                    <dl>
+                        <dt>Fufelschmerz Inc.</dt>
+                        <dd>- 5 years</dd>
+                        <dt>Arasaka Corporation</dt>
+                        <dd>- 4 years</dd>
+                        <dt>Oscorp</dt>
+                        <dd>- 2 years</dd>
+                        <dt>Umbrella Corp.</dt>
+                        <dd>- 3 years</dd>
+                        <dt>Wayne Enterprises</dt>
+                        <dd>- half a year</dd>
+                    </dl>
+                </div>
+                <div class="col-3" id="side-panel">
+                    <h6 class="list-name"><b>SKILLS</b></h6>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>SASS</li>
+                        <li>Bootstrap</li>
+                        <li>JS</li>
+                        <li>jQuery</li>
+                        <li>Vue.js</li>
+                        <li>NPM</li>
+                        <li>Gulp</li>
+                    </ul>
+                    <h6 class="list-name"><b>HOBBIES</b></h6>
+                    <ol>
+                        <li>Reading</li>
+                        <li>Coding</li>
+                        <li>Creating media presentations</li>
+                    </ol>
                 </div>
             </div>
         </div>
-        <div class="row" id="main-content">
-            <div class="col-9" id="main-panel">
-                <table class="table table-striped">
-                    <tr>
-                        <th>Company</th>
-                        <th>Vacancy</th>
-                        <th>Duration of work</th>
-                    </tr>
-                    <tr>
-                        <td>BTS</td>
-                        <td>Junior Front-end developer</td>
-                        <td>2 years</td>
-                    </tr>
-                </table>
-                <h6 class="list-name"><b>SOCIAL NETWORKS</b></h6>
-                <ul>
-                    <li><a href="https://github.com/Az1mzhan">Github</a></li>
-                    <li><a href="https://t.me/Az1mzhan">Telegram</a></li>
-                    <li><a href="https://wa.me/77782223678">WhatsApp</a></li>
-                </ul>
-                <h6 class="list-name"><b>EXPERIENCE</b></h6>
-                <dl>
-                    <dt>Fufelschmerz Inc.</dt>
-                    <dd>- 5 years</dd>
-                    <dt>Arasaka Corporation</dt>
-                    <dd>- 4 years</dd>
-                    <dt>Oscorp</dt>
-                    <dd>- 2 years</dd>
-                    <dt>Umbrella Corp.</dt>
-                    <dd>- 3 years</dd>
-                    <dt>Wayne Enterprises</dt>
-                    <dd>- half a year</dd>
-                </dl>
+        <div id="form" v-if="id == 1">
+            <div class="row justify-content-center" id="form-span">
+                <h6 class="col-3 list-name"><strong>PLEASE, FILL YOUR FORM</strong></h6>
             </div>
-            <div class="col-3" id="side-panel">
-                <h6 class="list-name"><b>SKILLS</b></h6>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>SASS</li>
-                    <li>Bootstrap</li>
-                    <li>JS</li>
-                    <li>jQuery</li>
-                    <li>Vue.js</li>
-                    <li>NPM</li>
-                    <li>Gulp</li>
-                </ul>
-                <h6 class="list-name"><b>HOBBIES</b></h6>
-                <ol>
-                    <li>Reading</li>
-                    <li>Coding</li>
-                    <li>Creating media presentations</li>
-                </ol>
-            </div>
+            <form id="myForm" name="myForm" method="get" onsubmit="formSubmit()">
+                <div class="row justify-content-center form-block">
+                    <label class="col-1 form-label" for="user">Username</label>
+                    <input class="col-2" type="text" id="user" checked>
+                </div>
+                <div class="row justify-content-center form-block" id="user-block">
+                    <label class="col-1 form-label" for="password">Password</label>
+                    <input class="col-2" type="password" id="password" checked>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-3" id="data-delimiter"></div>
+                </div>
+                <div class="row justify-content-center form-block">
+                    <label class="col-1 form-label" for="name">Name</label>
+                    <input class="col-2" type="text" id="name" checked>
+                </div>
+                <div class="row justify-content-center form-block">
+                    <label class="col-1 form-label" for="surname">Surname</label>
+                    <input class="col-2" type="text" id="surname" checked>
+                </div>
+                <div class="row justify-content-center form-block">
+                    <label class="col-1 form-label" for="bday">Birthday</label>
+                    <input class="col-2" type="date" id="bday" checked>
+                </div>
+                <div class="row justify-content-center form-block">
+                    <label class="col-1 form-label" for="email">Email</label>
+                    <input class="col-2" type="email" id="email" checked>
+                </div>
+                <div class="row justify-content-center form-block">
+                    <div class="col-3 row justify-content-around">
+                        <input class="col-6 btn btn-outline-success" type="submit" id="submit" value="Submit" @click="mainToggle" checked>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-1" id="return">
+                        <p id="sp-link2"><a href="#" @click="mainToggle">Return</a></p>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
