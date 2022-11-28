@@ -32,7 +32,7 @@ const fadeOutEffect = setInterval(() => {
 }, 300);*/
 
 //Vue components
-const { createApp } = Vue
+const { createApp } = Vue;
 
 createApp({
     data() {

@@ -3,61 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name ="viewport" content="width=device-width, initial-scale=1">
+    <!-- CV - Curriculum Vitae -->
     <title>CV</title>
+    <!-- CSS file -->
     <link href="style.css" rel="stylesheet">
+    <!-- Bootstrap 5.2 library -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Vue.js 3 library -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
+    <!-- div block with id #app is for Vue.js library's work -->
     <div class="container-fluid" id="app">
-        <div id="main-page" v-if="id == 0">
-            <div class="row" id="nav">
-                <div class="col-2">
-                    <img src="pfp.jpg" class="text-center" id="pfp">
+        <!-- preloader screen (not supported yet) -->
+        <div class="page-container" id="preloader" v-if="false">
+            <h1>Loading...</h1>
+        </div>
+        <!-- web-page for your CV -->
+        <div class="page-container position-relative" id="cv-container" v-if="id == 0">
+            <!-- Navbar -->
+            <div class="site-panel row bg-chrome-gray" id="nav">
+                <div class="col-2" id="pfp-container">
+                    <img src="pfp.jpg" class="rounded border-gray text-center" id="pfp">
                 </div>
-                <div class="col-9" id="fullname">
-                    <h1><strong>Azimzhan Mussabayev</strong></h1>
+                <div class="col-9" id="full-name">
+                    <h2 id="fn-row">Azimzhan Mussabayev</h2>
                     <i id="role">Freshman of Astana IT University</i>
-                    <div class="row">
-                        <div class="col-1">
+                    <div class="row nav-data">
+                        <div class="row">
+                            <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-2">
+                                <p class="data-header">Phone: </p>
+                            </div>
+                            <div class="col-xxl-11 col-xl-10 col-lg-10 col-md-10">
+                                <p class="data-header">+44 (7975) 777-666</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-2">
+                                <p class="data-header">Address: </p>
+                            </div>
+                            <div class="col-xxl-11 col-xl-10 col-lg-10 col-md-10">
+                                <p class="data-header">221b Baker Street, London</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-2">
+                                <p class="data-header">Email: </p>
+                            </div>
+                            <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                                <p class="data-header">azimzhaan@gmail.com</p>
+                            </div>
+                            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-12
+">
+                                <p class="anchor-par underline"><a href="#" class="color-aliceblue without-line" id="sp-add" @click="sideToggle">Form >></a></p>
+                            </div>
+                        </div>
+                        <!--div class="col-xxl-1 col-xl-1 col-lg-2 col-md-2 col-sm-3">
                             <p class="data-header">Phone: </p>
                             <p class="data-header">Address: </p>
                             <p class="data-header">Email: </p>
                         </div>
-                        <div class="col-11">
+                        <div-- class="col-xxl-11 col-xl-11 col-lg-10 col-md-10 col-sm-9">
                             <p class="data-text">+44 (7975) 777-666</p>
                             <p class="data-text">221b Baker Street, London</p>
-                            <p class="data-text">azimzhaan@gmail.com</p>
-                        </div>
+                            <div class="row">
+                                <div class="col-10 col-md-9 col-sm-12">
+                                    <p class="data-text">azimzhaan@gmail.com</p>
+                                </div>
+                                <div class="col-2 col-md-3 col-sm-12 text-end">
+                                    <p class="anchor-par underline"><a href="#" class="color-aliceblue without-line" id="sp-add" @click="sideToggle">Form >></a></p>
+                                </div>
+                            </div>
+                        </div-->
                     </div>
                 </div>
-                <div class="col-1">
-                    <p id="sp-link"><a href="#" id="sp-add" @click="sideToggle">Form >></a></p>
-                </div>
             </div>
-            <div class="row" id="main-content">
-                <div class="col-9" id="main-panel">
-                    <table class="table table-striped">
-                        <tr>
-                            <th>Company</th>
-                            <th>Vacancy</th>
-                            <th>Duration of work</th>
+            <!-- Main content (the entire web-page, excluding navbar) -->
+            <div class="site-panel row" id="main-content">
+                <!-- Main panel (container of main text data) -->
+                <div class="col-sm-12 col-lg-9" id="main-panel">
+                    <table class="table table-striped color-aliceblue">
+                        <tr class="color-aliceblue">
+                            <th class="text-center">Company</th>
+                            <th class="text-center">Vacancy</th>
+                            <th class="text-center">Duration of work</th>
                         </tr>
                         <tr>
-                            <td>BTS</td>
-                            <td>Junior Front-end developer</td>
-                            <td>2 years</td>
+                            <td class="text-center">BTS</td>
+                            <td class="text-center">Junior Front-end developer</td>
+                            <td class="text-center">2 years</td>
                         </tr>
                     </table>
-                    <h6 class="list-name"><b>SOCIAL NETWORKS</b></h6>
+                    <h6 class="list-name bold-text underline">SOCIAL NETWORKS</h6>
                     <ul>
-                        <li><a href="https://github.com/Az1mzhan">Github</a></li>
-                        <li><a href="https://t.me/Az1mzhan">Telegram</a></li>
-                        <li><a href="https://wa.me/77782223678">WhatsApp</a></li>
+                        <li class="anchor-par"><a href="https://github.com/Az1mzhan">Github</a></li>
+                        <li class="anchor-par"><a href="https://t.me/Az1mzhan">Telegram</a></li>
+                        <li class="anchor-par"><a href="https://wa.me/77782223678">WhatsApp</a></li>
                     </ul>
-                    <h6 class="list-name"><b>EXPERIENCE</b></h6>
+                    <h6 class="list-name bold-text underline">EXPERIENCE</h6>
                     <dl>
                         <dt>Fufelschmerz Inc.</dt>
                         <dd>- 5 years</dd>
@@ -71,8 +116,9 @@
                         <dd>- half a year</dd>
                     </dl>
                 </div>
-                <div class="col-3" id="side-panel">
-                    <h6 class="list-name"><b>SKILLS</b></h6>
+                <!-- Side panel (the panel on the right side) -->
+                <div class="col-sm-12 col-lg-3" id="side-panel">
+                    <h6 class="list-name bold-text underline">SKILLS</h6>
                     <ul>
                         <li>HTML</li>
                         <li>CSS</li>
@@ -84,60 +130,70 @@
                         <li>NPM</li>
                         <li>Gulp</li>
                     </ul>
-                    <h6 class="list-name"><b>HOBBIES</b></h6>
-                    <ol>
+                    <h6 class="list-name bold-text underline">HOBBIES</h6>
+                    <ul>
                         <li>Reading</li>
                         <li>Coding</li>
                         <li>Creating media presentations</li>
-                    </ol>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div id="form" v-if="id == 1">
-            <div class="row justify-content-center" id="form-span">
-                <h6 class="col-3 list-name"><strong>PLEASE, FILL YOUR FORM</strong></h6>
+        <!-- web-page for user form -->
+        <div class="page-container position-relative" id="form-container" v-if="id == 1">
+            <!-- Form block -->
+            <div class="position-relative start-50 translate-middle bg-chrome-gray border-gray" id="form">
+                <div class="row justify-content-center text-center">
+                    <h5 class="col-8" id="form-title">FILL OUT THE FORM</h5>
+                </div>
+                <form id="myForm" name="myForm" method="get" onsubmit="formSubmit()">
+                    <div class="row justify-content-center text-center form-label">
+                        <p class="col-6 label-text">Username</p>
+                    </div>
+                    <div class="row justify-content-center form-block">
+                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="text" id="user" checked>
+                    </div>
+                    <div class="row justify-content-center text-center form-label">
+                        <p class="col-6 label-text">Password</p>
+                    </div>
+                    <div class="row justify-content-center form-block">
+                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="password" id="password" checked>
+                    </div>
+                    <div class="row justify-content-center text-center form-label">
+                        <p class="col-6 label-text">Name</p>
+                    </div>
+                    <div class="row justify-content-center form-block">
+                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="name" id="name" checked>
+                    </div>
+                    <div class="row justify-content-center text-center form-label">
+                        <p class="col-6 label-text">Surname</p>
+                    </div>
+                    <div class="row justify-content-center form-block">
+                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="text" id="surname" checked>
+                    </div>
+                    <div class="row justify-content-center text-center form-label">
+                        <p class="col-6 label-text">Birthday date</p>
+                    </div>
+                    <div class="row justify-content-center form-block">
+                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="date" id="bday" checked>
+                    </div>
+                    <div class="row justify-content-center text-center form-label">
+                        <p class="col-6 label-text">Email</p>
+                    </div>
+                    <div class="row justify-content-center form-block">
+                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="email" id="email" checked>
+                    </div>
+                    <div class="row justify-content-center form-block">
+                        <input class="col-6 btn btn-outline-light" type="submit" id="submit" value="Submit" checked>
+                    </div>
+                </form>
+                <div class="row justify-content-center text-center">
+                    <p class="col-6 anchor-par underline"><a href="#" class="color-aliceblue without-line" @click="mainToggle">Return</a></p>
+                </div>
             </div>
-            <form id="myForm" name="myForm" method="get" onsubmit="formSubmit()">
-                <div class="row justify-content-center form-block">
-                    <label class="col-1 form-label" for="user">Username</label>
-                    <input class="col-2" type="text" id="user" checked>
-                </div>
-                <div class="row justify-content-center form-block" id="user-block">
-                    <label class="col-1 form-label" for="password">Password</label>
-                    <input class="col-2" type="password" id="password" checked>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-3" id="data-delimiter"></div>
-                </div>
-                <div class="row justify-content-center form-block">
-                    <label class="col-1 form-label" for="name">Name</label>
-                    <input class="col-2" type="text" id="name" checked>
-                </div>
-                <div class="row justify-content-center form-block">
-                    <label class="col-1 form-label" for="surname">Surname</label>
-                    <input class="col-2" type="text" id="surname" checked>
-                </div>
-                <div class="row justify-content-center form-block">
-                    <label class="col-1 form-label" for="bday">Birthday</label>
-                    <input class="col-2" type="date" id="bday" checked>
-                </div>
-                <div class="row justify-content-center form-block">
-                    <label class="col-1 form-label" for="email">Email</label>
-                    <input class="col-2" type="email" id="email" checked>
-                </div>
-                <div class="row justify-content-center form-block">
-                    <div class="col-3 row justify-content-around">
-                        <input class="col-6 btn btn-outline-success" type="submit" id="submit" value="Submit" @click="mainToggle" checked>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-1" id="return">
-                        <p id="sp-link2"><a href="#" @click="mainToggle">Return</a></p>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
+    <!-- External JS script -->
     <script src="script.js"></script>
 </body>
 </html>

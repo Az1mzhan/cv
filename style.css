@@ -3,22 +3,70 @@
 
 body
 {
-    font-family: 'Sora', sans-serif !important;
+    background-color: black !important;
+    color: aliceblue !important;
+    font-family: "JetBrains Mono" !important;
+}
+
+.page-container
+{
+    animation: page-blur 1s linear;
+}
+
+.bg-black
+{
+    background-color: black !important;
+}
+
+.bg-chrome-gray
+{
+    background-color: rgba(255,255,255,0.13) !important;
+}
+
+.bg-chrome-lightgray
+{
+    background-color: rgba(255,255,255,0.1) !important;
+}
+
+.color-aliceblue
+{
+    color: aliceblue !important;
+}
+
+.border-gray
+{
+    border: 1px solid rgba(255,255,255,0.1);
+    box-sizing: border-box;
+}
+
+.border-gray:focus
+{
+    outline: none;
+}
+
+.bold-text
+{
+    font-weight: bold;
+}
+
+.without-line
+{
+    text-decoration: none;
+}
+
+.underline
+{
+    text-decoration: underline;
+}
+
+.without-bullet
+{
+    list-style-type: none;
 }
 
 table
 {
     margin-top: 2.5vh;
-}
-
-th
-{
-    background-color: rgba(128, 128, 128, 0.46) !important;
-}
-
-a
-{
-    color: rgba(0, 0, 0, 0.8) !important;
 }
 
 dt
@@ -31,66 +79,54 @@ dd
     padding-left: 5vh;
 }
 
-form
+input
 {
-    margin-top: 3vh;
+    border-radius: .5vh;
+}
+
+.anchor-par > a
+{
+    color: aquamarine !important;
 }
 
 .list-name
 {
-    background-color: rgba(128, 128, 128, 0.46);
     width: 37.5vh;
-    padding-top: 1.25vh;
     margin-top: 2.5vh;
     margin-left: 2.5vh;
+    padding-top: 1.25vh;
 }
 
-.data-header, .data-text
+.data-header, .data-text, .label-text
 {
     margin: 0;
 }
 
-.form-block
+.form-label
 {
-    padding-top: 2.5vh;
-}
-
-#nav
-{
-    /*background-color: rgba(0, 0, 128, 0.91);*/
-    background-color: rgba(25, 25, 112, 0.94);
-    color: aliceblue;
-    height: 25vh;
+    padding-top: 1.5vh;
 }
 
 #pfp
 {
+    margin-top: 3vh;
     margin-left: 2.5vh;
     padding: 0;
-    width: 150px;
-    height: 150px;
-    border: 2px solid gray;
 }
 
-#fullname, #pfp
+#fn-row
 {
-    margin-top: 2.5vh;
+    margin-top: -0.25vh;
 }
 
-#sp-link
+#full-name
 {
-    margin-top: 20vh;
+    margin-top: 3vh;
 }
 
 #sp-link2
 {
     margin-top: 5vh;
-    font-weight: bold;
-}
-
-#sp-add
-{
-    color: aliceblue !important;
 }
 
 #main-content
@@ -98,20 +134,15 @@ form
     height: 75vh;
 }
 
-#main-panel
-{
-    background-color: white;
-}
-
 #side-panel
 {
-    background-color: rgba(211, 211, 211, 0.35);
     padding: 0;
 }
 
-#form
+#form-title
 {
-    margin-top: 12.5vh;
+    font-weight: bolder;
+    margin-top: 3.75vh;
 }
 
 #return
@@ -121,7 +152,8 @@ form
 
 #submit
 {
-    margin-top: 2.5vh;
+    margin-top: 3.75vh;
+    margin-bottom: 2.5vh;
 }
 
 #user-block
@@ -137,12 +169,6 @@ form
 
 /*Main page animation*/
 
-#main-page
-{
-    position: relative;
-    animation: page-blur 1s linear;
-}
-
 @keyframes page-blur
 {
     0% {-webkit-filter: blur(3vh)}
@@ -152,15 +178,126 @@ form
 
 /*Form animation*/
 
-form, #form-span
+#form
 {
-    position: relative;
-    animation: slide .5s linear;
+    top: 50vh;
+    width: 50vh;
+    border-radius: 1.25vh !important;
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    animation: slide 1s linear;
 }
 
 @keyframes slide
 {
-    0% {left: -50%; -webkit-filter: blur(3vh)}
-    50% {left: -25%; -webkit-filter: blur(1.5vh)}
-    100% {left: 0%; -webkit-filter: blur(0vh)}
+    0% {top: -40vh}
+    50% {top: 5vh}
+    100% {top: 50vh}
+}
+
+#form-container
+{
+    height: 100vh;
+}
+
+/*XS screen*/
+@media only screen and (max-width: 540px)
+{
+    body {font-size: 6px !important;}
+    h2, h6 {font-size: 6px !important;}
+    #nav {height: 30vh; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    #pfp {width: 50px; height: 50px; margin-top: 3vh}
+    #side-panel {border-top: 1px solid rgba(255,255,255,0.1);}
+}
+
+/*SM screen*/
+@media only screen and (min-width: 540px) and (max-width: 720px)
+{
+    body {font-size: 16px !important;}
+    h2 {font-size: 21px !important;}
+    h6 {font-size: 16.5px !important;}
+    #nav {height: 72.5vh; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    #pfp {width: 125px; height: 125px; margin-left: -1vh; margin-top: 3vh}
+    #full-name {margin-left: 16vh !important;}
+    #side-panel {border-top: 1.5px solid rgba(255,255,255,0.1);}
+}
+
+/*MD screen*/
+@media only screen and (min-width: 720px) and (max-width: 960px)
+{
+    body {font-size: 16px !important;}
+    h2 {font-size: 21px !important;}
+    h6 {font-size: 16.5px !important;}
+    #nav {height: 39.875vh; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    #pfp {width: 125px; height: 125px; margin-top: 3vh}
+    #full-name {margin-left: 15vh !important;}
+    #side-panel {border-top: 1px solid rgba(255,255,255,0.1);}
+}
+
+/*MD screen - portrait mode*/
+@media only screen and (min-width: 720px) and (max-width: 960px) and (orientation: portrait)
+{
+    body {font-size: 20px !important;}
+    h2 {font-size: 25px !important;}
+    h6 {font-size: 20.5px !important;}
+    #nav {height: 22.5vh; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    #pfp {width: 125px; height: 125px; margin-top: 3.75vh;}
+    #full-name {margin-left: 16.5vh !important; margin-top: -12vh}
+    #side-panel {border-top: 1px solid rgba(255,255,255,0.1);}
+}
+
+/*LG screen*/
+@media only screen and (min-width: 960px) and (max-width: 1140px)
+{
+    body {font-size: 16px !important;}
+    h2 {font-size: 21px !important;}
+    h6 {font-size: 16.5px !important;}
+    #nav {height: 32.5vh; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    #pfp {width: 125px; height: 125px; margin-top: 3.25vh}
+    #side-panel {border-left: 2px solid rgba(255,255,255,0.1);}
+}
+
+
+/*XL screen*/
+@media only screen and (min-width: 1140px) and (max-width: 1320px)
+{
+    body {font-size: 16px !important;}
+    h2 {font-size: 21px !important;}
+    h6 {font-size: 16.5px !important;}
+    #nav {height: 27.5vh; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    #pfp {width: 125px; height: 125px; margin-top: 3vh}
+    #side-panel {border-left: 2px solid rgba(255,255,255,0.1);}
+}
+
+/*XXL screen*/
+@media only screen and (min-width: 1320px)
+{
+    body {font-size: 16px !important;}
+    h2 {font-size: 21px !important;}
+    h6 {font-size: 16.5px !important;}
+    #nav {height: 22.5vh; border-bottom: 1px solid rgba(255,255,255,0.1);}
+    #pfp {width: 125px; height: 125px;}
+    #side-panel {border-left: 2px solid rgba(255,255,255,0.1);}
+}
+
+/*SCROLLBAR*/
+
+/* width */
+::-webkit-scrollbar
+{
+    width: 15px;
+    background-color: rgba(25, 25, 28, 0.96);
+}
+
+/* Track */
+::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb
+{
+    background-color: rgba(128, 128, 128, 0.55);
 }
