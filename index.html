@@ -14,96 +14,45 @@
     <!-- Vue.js 3 library -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body>
+<body class="color-aliceblue jet-brains">
     <!-- div block with id #app is for Vue.js library's work -->
-    <div class="container-fluid" id="app">
-        <!-- preloader screen (not supported yet) -->
-        <div class="page-container" id="preloader" v-if="false">
-            <h1>Loading...</h1>
-        </div>
+    <div id="app">
         <!-- web-page for your CV -->
-        <div class="page-container position-relative" id="cv-container" v-if="id == 0">
+        <div class="page-container" id="cv-container" v-if="id == 'cv-container'">
             <!-- Navbar -->
-            <div class="site-panel row bg-chrome-gray" id="nav">
-                <div class="col-2" id="pfp-container">
-                    <img src="pfp.jpg" class="rounded border-gray text-center" id="pfp">
+            <header class="nav d-flex align-items-center site-panel" id="nav">
+                <div class="nav-link" id="pfp-container">
+                    <button class="bg-transparent" id="pfp-button"><img src="img/pfp.jpg" alt="profile picture" class="rounded" id="pfp"></button>
                 </div>
-                <div class="col-9" id="full-name">
-                    <h2 id="fn-row">Azimzhan Mussabayev</h2>
-                    <i id="role">Freshman of Astana IT University</i>
-                    <div class="row nav-data">
-                        <div class="row">
-                            <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-2">
-                                <p class="data-header">Phone: </p>
-                            </div>
-                            <div class="col-xxl-11 col-xl-10 col-lg-10 col-md-10">
-                                <p class="data-header">+44 (7975) 777-666</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-2">
-                                <p class="data-header">Address: </p>
-                            </div>
-                            <div class="col-xxl-11 col-xl-10 col-lg-10 col-md-10">
-                                <p class="data-header">221b Baker Street, London</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-2">
-                                <p class="data-header">Email: </p>
-                            </div>
-                            <div class="col-xxl-9 col-xl-8 col-lg-8 col-md-8 col-sm-12">
-                                <p class="data-header">azimzhaan@gmail.com</p>
-                            </div>
-                            <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-12
-">
-                                <p class="anchor-par underline"><a href="#" class="color-aliceblue without-line" id="sp-add" @click="sideToggle">Form >></a></p>
-                            </div>
-                        </div>
-                        <!--div class="col-xxl-1 col-xl-1 col-lg-2 col-md-2 col-sm-3">
-                            <p class="data-header">Phone: </p>
-                            <p class="data-header">Address: </p>
-                            <p class="data-header">Email: </p>
-                        </div>
-                        <div-- class="col-xxl-11 col-xl-11 col-lg-10 col-md-10 col-sm-9">
-                            <p class="data-text">+44 (7975) 777-666</p>
-                            <p class="data-text">221b Baker Street, London</p>
-                            <div class="row">
-                                <div class="col-10 col-md-9 col-sm-12">
-                                    <p class="data-text">azimzhaan@gmail.com</p>
-                                </div>
-                                <div class="col-2 col-md-3 col-sm-12 text-end">
-                                    <p class="anchor-par underline"><a href="#" class="color-aliceblue without-line" id="sp-add" @click="sideToggle">Form >></a></p>
-                                </div>
-                            </div>
-                        </div-->
-                    </div>
-                </div>
-            </div>
+                <a class="nav-link sora uppercase bold-text" href="#" @click="cv_toggle">CV</a>
+                <a class="nav-link sora uppercase bold-text" href="#" @click="form_toggle">Form</a>
+                <a class="nav-link sora uppercase bold-text" href="#" @click="projects_toggle">Pet projects</a>
+                <a class="nav-link sora uppercase bold-text" href="#" @click="bg_select">Credits</a>
+            </header>
             <!-- Main content (the entire web-page, excluding navbar) -->
-            <div class="site-panel row" id="main-content">
+            <div class="site-panel row under-site" id="main-content">
                 <!-- Main panel (container of main text data) -->
                 <div class="col-sm-12 col-lg-9" id="main-panel">
                     <table class="table table-striped color-aliceblue">
-                        <tr class="color-aliceblue">
-                            <th class="text-center">Company</th>
-                            <th class="text-center">Vacancy</th>
-                            <th class="text-center">Duration of work</th>
+                        <tr>
+                            <th class="color-aliceblue text-center">Company</th>
+                            <th class="color-aliceblue text-center">Vacancy</th>
+                            <th class="color-aliceblue text-center">Duration of work</th>
                         </tr>
                         <tr>
-                            <td class="text-center">BTS</td>
-                            <td class="text-center">Junior Front-end developer</td>
-                            <td class="text-center">2 years</td>
+                            <td class="color-aliceblue text-center">BTS</td>
+                            <td class="color-aliceblue text-center">Junior Front-end developer</td>
+                            <td class="color-aliceblue text-center">2 years</td>
                         </tr>
                     </table>
-                    <h6 class="list-name bold-text underline">SOCIAL NETWORKS</h6>
-                    <ul>
-                        <li class="anchor-par"><a href="https://github.com/Az1mzhan">Github</a></li>
-                        <li class="anchor-par"><a href="https://t.me/Az1mzhan">Telegram</a></li>
-                        <li class="anchor-par"><a href="https://wa.me/77782223678">WhatsApp</a></li>
+                    <h6 class="list-name bold-text uppercase underline">Social networks</h6>
+                    <ul class="main-list" id="social-list">
+                        <li class="network-bullet"><a class="network-link" href="https://github.com/Az1mzhan">Github</a></li>
+                        <li class="network-bullet"><a class="network-link" href="https://t.me/Az1mzhan">Telegram</a></li>
+                        <li class="network-bullet"><a class="network-link" href="https://wa.me/77782223678">WhatsApp</a></li>
                     </ul>
-                    <h6 class="list-name bold-text underline">EXPERIENCE</h6>
-                    <dl>
+                    <h6 class="list-name bold-text uppercase underline">Experience</h6>
+                    <dl id="experience-list">
                         <dt>Fufelschmerz Inc.</dt>
                         <dd>- 5 years</dd>
                         <dt>Arasaka Corporation</dt>
@@ -118,8 +67,8 @@
                 </div>
                 <!-- Side panel (the panel on the right side) -->
                 <div class="col-sm-12 col-lg-3" id="side-panel">
-                    <h6 class="list-name bold-text underline">SKILLS</h6>
-                    <ul>
+                    <h6 class="side-list-name bold-text uppercase underline">Skills</h6>
+                    <ul class="side-list" id="technologies-list">
                         <li>HTML</li>
                         <li>CSS</li>
                         <li>SASS</li>
@@ -130,66 +79,112 @@
                         <li>NPM</li>
                         <li>Gulp</li>
                     </ul>
-                    <h6 class="list-name bold-text underline">HOBBIES</h6>
-                    <ul>
+                    <h6 class="side-list-name bold-text uppercase underline">Hobbies</h6>
+                    <ul class="side-list" id="hobby-list">
                         <li>Reading</li>
                         <li>Coding</li>
                         <li>Creating media presentations</li>
                     </ul>
                 </div>
             </div>
+            <footer class="d-flex justify-content-center">
+                <div class="d-flex text-center" id="contacts-container">
+                    <p class="footer-heading sora bold-text uppercase" id="contacts-heading">Contacts</p>
+                    <a href="#"><img src="img/instagram.png" alt="instagram" class="network-icon" id="insta-icon"></a>
+                    <a href="#"><img src="img/facebook.png" alt="facebook" class="network-icon" id="fb-icon"></a>
+                    <a href="#"><img src="img/snapchat.png" alt="snapchat" class="network-icon" id="snapchat-icon"></a>
+                </div>
+                <div id="navigate-container">
+                    <p class="footer-heading sora bold-text uppercase" id="navigate-heading">Navigate</p>
+                    <ul class="footer-list without-bullet" id="navigate-list">
+                        <li class="bold-text uppercase"><a class="without-line" href="#">CV</a></li>
+                        <li class="bold-text uppercase"><a class="without-line" href="#">Form</a></li>
+                        <li class="bold-text uppercase"><a class="without-line" href="#">Pet projects</a></li>
+                        <li class="bold-text uppercase"><a class="without-line" href="#">Credits</a></li>
+                    </ul>
+                </div>
+                <div id="help-container">
+                    <p class="footer-heading sora bold-text uppercase" id="help-heading">Help & FAQ</p>
+                    <ul class="footer-list without-bullet" id="help-list">
+                        <li class="bold-text uppercase"><a class="without-line" href="#">List of technologies</a></li>
+                        <li class="bold-text uppercase"><a class="without-line" href="#">Bugs' tracking</a></li>
+                        <li class="bold-text uppercase"><a class="without-line" href="#">Credits</a></li>
+                    </ul>
+                </div>
+                <div class="break"></div>
+                <div id="copyright-container">
+                    <p class="footer-heading bold-text italic-text">Azimzhan Mussabayev, 2022. All rights are reserved. ©</p>
+                </div>
+                <div class="break"></div>
+            </footer>
         </div>
         <!-- web-page for user form -->
-        <div class="page-container position-relative" id="form-container" v-if="id == 1">
+        <div class="page-container" id="form-container" v-if="id == 'form-container'">
             <!-- Form block -->
-            <div class="position-relative start-50 translate-middle bg-chrome-gray border-gray" id="form">
-                <div class="row justify-content-center text-center">
-                    <h5 class="col-8" id="form-title">FILL OUT THE FORM</h5>
+            <div class="border-gray" id="form">
+                <div class="d-flex justify-content-center text-center">
+                    <h5 class="sora uppercase" id="form-title">Fill out the form</h5>
                 </div>
                 <form id="myForm" name="myForm" method="get" onsubmit="formSubmit()">
-                    <div class="row justify-content-center text-center form-label">
-                        <p class="col-6 label-text">Username</p>
+                    <div class="d-flex justify-content-center text-center form-label">
+                        <p class="label-text">Username</p>
                     </div>
-                    <div class="row justify-content-center form-block">
-                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="text" id="user" checked>
+                    <div class="d-flex justify-content-center form-block">
+                        <input class="bg-chrome-gray color-aliceblue border-gray" type="text" id="user" checked>
                     </div>
-                    <div class="row justify-content-center text-center form-label">
-                        <p class="col-6 label-text">Password</p>
+                    <div class="d-flex justify-content-center text-center form-label">
+                        <p class="label-text">Password</p>
                     </div>
-                    <div class="row justify-content-center form-block">
-                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="password" id="password" checked>
+                    <div class="d-flex justify-content-center form-block">
+                        <input class="bg-chrome-gray color-aliceblue border-gray" type="password" id="password" checked>
                     </div>
-                    <div class="row justify-content-center text-center form-label">
-                        <p class="col-6 label-text">Name</p>
+                    <div class="d-flex justify-content-center text-center form-label">
+                        <p class="label-text">Name</p>
                     </div>
-                    <div class="row justify-content-center form-block">
-                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="name" id="name" checked>
+                    <div class="d-flex justify-content-center form-block">
+                        <input class="bg-chrome-gray color-aliceblue border-gray" type="name" id="name" checked>
                     </div>
-                    <div class="row justify-content-center text-center form-label">
-                        <p class="col-6 label-text">Surname</p>
+                    <div class="d-flex justify-content-center text-center form-label">
+                        <p class="label-text">Surname</p>
                     </div>
-                    <div class="row justify-content-center form-block">
-                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="text" id="surname" checked>
+                    <div class="d-flex justify-content-center form-block">
+                        <input class="bg-chrome-gray color-aliceblue border-gray" type="text" id="surname" checked>
                     </div>
-                    <div class="row justify-content-center text-center form-label">
-                        <p class="col-6 label-text">Birthday date</p>
+                    <div class="d-flex justify-content-center text-center form-label">
+                        <p class="label-text">Birthday date</p>
                     </div>
-                    <div class="row justify-content-center form-block">
-                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="date" id="bday" checked>
+                    <div class="d-flex justify-content-center form-block">
+                        <input class="bg-chrome-gray color-aliceblue border-gray" type="date" id="bday" checked>
                     </div>
-                    <div class="row justify-content-center text-center form-label">
-                        <p class="col-6 label-text">Email</p>
+                    <div class="d-flex justify-content-center text-center form-label">
+                        <p class="label-text">Email</p>
                     </div>
-                    <div class="row justify-content-center form-block">
-                        <input class="col-8 bg-chrome-gray color-aliceblue border-gray" type="email" id="email" checked>
+                    <div class="d-flex justify-content-center form-block">
+                        <input class="bg-chrome-gray color-aliceblue border-gray" type="email" id="email" checked>
                     </div>
-                    <div class="row justify-content-center form-block">
-                        <input class="col-6 btn btn-outline-light" type="submit" id="submit" value="Submit" checked>
+                    <div class="d-flex justify-content-center form-block">
+                        <input class="input-btn bold-text" type="submit" id="submit" value="Submit" checked>
                     </div>
                 </form>
-                <div class="row justify-content-center text-center">
-                    <p class="col-6 anchor-par underline"><a href="#" class="color-aliceblue without-line" @click="mainToggle">Return</a></p>
+                <div class="d-flex justify-content-center text-center">
+                    <p><a href="#" class="color-aliceblue underline" id="return-link" @click="cv_toggle">Return</a></p>
                 </div>
+            </div>
+        </div>
+        <div class="page-container" id="projects-container" v-if="id == 'projects-container'">
+            <ul id="projects-list">
+                <li href="#" @click="time_toggle"><a>Time manager</a></li>
+                <li href="#"><a>Calculator</a></li>
+                <li href="#"><a>Audio player</a></li>
+            </ul>
+        </div>
+        <div class="page-container" id="time-manager" v-if="id == 'time-manager'">
+            <div class="d-flex justify-content-center align-items-center" id="time-msg-container">
+                <h1 class="color-aliceblue" id="time-msg">{{this.time.msg}}</h1>
+            </div>
+            <div class="d-flex justify-content-center" id="timer-buttons">
+                <button class="timer-button text-center" id="start-time" @click="startWatch">Resume</button>
+                <button class="timer-button" id="pause-time" @click="stopWatch">Pause</button>
             </div>
         </div>
     </div>
