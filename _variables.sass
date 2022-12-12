@@ -1,0 +1,35 @@
+//Import fonts
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap')
+
+//Dark colors (Chrome edition)
+$chrome-gray: rgba(255,255,255,0.13)
+$chrome-dark-gray: rgba(255,255,255,0.1)
+
+//Dark colors
+$gray: rgba(128, 128, 128, 0.55)
+$dark: rgba(25, 25, 28, 0.96)
+
+//Vivid colors
+$vivid-purple: #735cb0
+$vivid-blue: #00a4ef
+$vivid-green: #6ab43e
+$acid-green: #00B712
+$vivid-yellow: #e89d41
+$vivid-red: #fd4084
+
+//Button color (may be manipulated via JS)
+$button-color: rgb(35,35,35)
+
+//Gradient patterns
+$grass-gradient: linear-gradient(to right, $vivid-green, $acid-green)
+
+//Fonts
+$jet-brains: 'JetBrains Mono', monospace
+$sora: Sora, sans-serif
+$vt323: 'VT323', monospace
+
+@mixin title($font-family: $sora, $text-transform: uppercase)
+  font-family: $font-family
+  text-transform: $text-transform

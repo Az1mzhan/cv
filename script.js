@@ -18,13 +18,14 @@ let formSubmit = () => {
     }
 }
 
-//Vue components
+//Vue component
 const { createApp } = Vue;
 
 createApp({
     data() {
         return {
             id: "cv-container",
+            // body backgroundColor select parameters
             bg: [
                 {
                     selector: "cv-container",
@@ -32,7 +33,7 @@ createApp({
                 },
                 {
                     selector: "form-container",
-                    color: "'rgb(35,35,35)'",
+                    color: "rgb(35,35,35)",
                 },
                 {
                     selector: "projects-container",
@@ -42,11 +43,45 @@ createApp({
                     selector: "time-manager",
                     color: "rgb(35,35,35)",
                 },
+                {
+                    selector: "audio-manager",
+                    color: "rgb(35,35,35)",
+                },
             ],
             colorPalette: ["#735cb0", "#00a4ef", '#6ab43e', "#e89d41", "#fd4084"],
+            // carousel3d parameters
+            carousel3d:
+                {
+                    it: 0,
+                    items:
+                        [
+                            {
+                                id: "trello-card",
+                                myTranslate: 0,
+                                translateX: [27.375, 27.375, -54.75],
+                                scale: [1.35, 1, 1],
+                                z_index: [2, 3, 1],
+                            },
+                            {
+                                id: "timer-card",
+                                myTranslate: 0,
+                                translateX: [27.375, -54.75, 27.375],
+                                scale: [1, 1, 1.35],
+                                z_index: [3, 1, 2],
+                            },
+                            {
+                                id: "audio-manager-card",
+                                myTranslate: 0,
+                                translateX: [-54.75, 27.375, 27.375],
+                                scale: [1, 1.35, 1],
+                                z_index: [1, 2, 3],
+                            },
+                        ],
+                },
             // parameters for Timer function
             intervalStatus: null,
             isLaunched: false,
+            isHover: false,
             time: {
                 s: 1,
                 m: 0,
@@ -87,11 +122,16 @@ createApp({
             this.id = "time-manager";
             this.bg_select();
         },
+        audio_toggle()
+        {
+            this.id = "audio-manager";
+            this.bg_select();
+        },
         startWatch()
         {
             let obj = this;
             let body = document.body;
-            let r = document.querySelector(":root");
+            let t_btn = document.getElementsByClassName("timer-button");
             let i = 0;
             let msg, h_msg, m_msg, s_msg;
             const delim = ':';
@@ -136,9 +176,24 @@ createApp({
                     obj.time.h++;
                     obj.time.m = 0;
                 }
-                r.style.transition =  "background-color 1s, color 1s, border 1s"
                 body.style.transition = "background-color 1s";
-                r.style.setProperty('--button-color', obj.colorPalette[i]);
+                for (let j = 0; j < 2; j++)
+                {
+                    //t_btn[j].style.transition =  "background-color 1s, color 1s, border 1s";
+                    t_btn[j].style.backgroundColor = obj.colorPalette[i];
+                    if (obj.isHover === false)
+                    {
+                        t_btn[j].style.borderColor = "aliceblue"
+                        t_btn[j].style.color = "aliceblue";
+                        t_btn[j].style.backgroundColor = obj.colorPalette[i];
+                    }
+                    else
+                    {
+                        t_btn[j].style.borderColor = obj.colorPalette[i]
+                        t_btn[j].style.color = obj.colorPalette[i];
+                        t_btn[j].style.backgroundColor = "aliceblue";
+                    }
+                }
                 body.style.backgroundColor = obj.colorPalette[i];
                 if (obj.time.s % 15 === 0)
                 {
@@ -158,6 +213,44 @@ createApp({
             let obj = this;
             clearInterval(obj.intervalStatus);
         },
+        carousel3d_prev()
+        {
+            /*let item = document.getElementsByClassName("card");
+            for (let i = 0; i < item.length; i++)
+            {
+                this.carousel3d.items[i].myTranslate -= this.carousel3d.items[i].translateX[2 - this.carousel3d.it];
+                item[i].style.zIndex = this.carousel3d.items[i].z_index[this.carousel3d.it];
+                item[i].style.transform = "translateX(" + this.carousel3d.items[i].myTranslate + "vw) scale(" + this.carousel3d.items[i].scale[this.carousel3d.it] + ")";
+            }*/
+        },
+        carousel3d_next()
+        {
+            let item = document.getElementsByClassName("card");
+            for (let i = 0; i < item.length; i++)
+            {
+                this.carousel3d.items[i].myTranslate += this.carousel3d.items[i].translateX[this.carousel3d.it];
+                item[i].style.zIndex = this.carousel3d.items[i].z_index[this.carousel3d.it];
+                item[i].style.transform = "translateX(" + this.carousel3d.items[i].myTranslate + "vw) scale(" + this.carousel3d.items[i].scale[this.carousel3d.it] + ")";
+            }
+            console.log(this.carousel3d.it);
+            if (this.carousel3d.it === 2)
+            {
+                this.carousel3d.it = 0;
+            }
+            else
+            {
+                ++this.carousel3d.it;
+            }
+        },
+        audioPlay()
+        {
+            let sound = new Howl({
+                src: ['./audio/Frank_Sinatra_-_Let_It_Snow_Let_It_Snow_Let_It_Snow.mp3'],
+                html5: true
+            });
+
+            sound.play();
+        }
     },
     mounted()
     {

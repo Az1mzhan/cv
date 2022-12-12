@@ -1,0 +1,476 @@
+@import "variables"
+@import "mixins"
+@import "funcs"
+
+//General web-page
+*
+  box-sizing: border-box
+  color: aliceblue
+
+html
+  font-size: 1vw
+
+body
+  min-height: 100vh
+
+.page-container
+  font-family: $jet-brains
+  animation: page-blur 1s linear
+
+.row
+  width: 100%
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+//TAG SELECTORS
+
+header, footer
+  background: $grass-gradient
+  font-family: $sora
+  box-shadow: 0 0 1vw gray
+
+header
+  @include translate(sticky, 0, 0, none)
+  a
+    &:first-child
+      margin-left: 3.25vw
+  .nav-link
+    color: aliceblue
+    &:hover
+      color: aliceblue
+
+footer
+  width: 100%
+  flex-wrap: wrap
+  div
+    margin-left: 12.5vw
+    margin-right: 12.5vw
+
+table
+  margin-top: 2.5vh
+
+dt, dd
+  padding-left: 2.5vh
+
+input
+  background: $grass-gradient
+  border: .125vw solid aliceblue
+  border-radius: .5vw
+  &:focus
+    outline: none
+  &:not(input[type=submit])
+    width: 16.125vw
+  &[type=submit]
+    width: 12vw
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+//CV container (Not available now)
+
+.nav-link
+  font-size: 1.125vw
+  transition: opacity .25s
+  &:hover
+    @include hover_opacity
+
+.network-bullet, .network-link
+  color: aquamarine
+  transition: opacity .25s
+  &:hover
+    @include hover_opacity(aquamarine)
+
+.list-name
+  margin-left: 2.5vw
+
+.side-list-name, .list-name
+  margin-top: 2.5vh
+  font-weight: bolder
+  text-decoration: underline
+  text-transform: uppercase
+
+.main-list
+  padding-left: 2.5vw
+
+#experience-list
+  dd, dt
+    padding-left: 2.5vw
+
+.data-header, .data-text, .label-text
+  margin: 0
+
+.footer-heading
+  margin-top: 2.5vh
+  font-size: 1vw
+
+.network-icon
+  width: 1.5vw
+  height: 1.5vw
+  margin-bottom: 1vh
+  &:not(#insta-icon)
+    margin-top: 1vh
+
+.footer-list
+  padding: 0
+  font-size: .85vw
+  li
+    margin-bottom: 1.5vh
+    a
+      color: aliceblue
+      &:hover
+        @include hover_opacity
+
+.break
+  height: 0
+  flex-basis: 100%
+
+#main-content
+  padding-bottom: 2.5vh
+
+#nav-data
+  margin-top: -2vh
+
+#pfp-button
+  padding: 0
+  border: 0
+
+#pfp-button, #pfp
+  transition: transform 2s
+  &:hover
+    transform: scale(87.5%)
+
+#fn-row
+  margin-top: -0.25vh
+
+#full-name
+  margin-top: 3vh
+
+#sp-link2
+  margin-top: 5vh
+
+#contacts-container
+  flex-direction: column
+  a
+    &:hover
+      @include hover_opacity()
+
+#insta-icon
+  margin-top: .5vh
+
+#copyright-heading
+  font-style: italic
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+//Form container
+
+.form-label
+  padding-top: 1.5vh
+
+.input-btn
+  padding-top: .875vh
+  padding-bottom: .875vh
+  background: $grass-gradient
+  color: aliceblue
+  border: .125vw solid aliceblue
+  border-radius: .5vw
+  transition: background-color .5s, color .5s, border .5s
+  &:hover
+    background-color: aliceblue
+    color: $vivid-green
+    border: .125vw solid $vivid-green
+
+#form
+  @include translate
+  width: 25vw
+  background: $grass-gradient
+  border-radius: 1.25vw
+  box-shadow: 0 0 40vw rgba(8,7,16,0.6)
+  z-index: 1
+  animation: slide 1s linear
+
+#form-container
+  height: 100vh
+
+#form-title
+  font-weight: bolder
+  margin-top: 3.75vh
+
+#submit
+  margin-top: 3.75vh
+  margin-bottom: 2.5vh
+
+#user-block
+  padding-bottom: 3.75vh
+
+#data-delimiter
+  border-bottom: .05vh solid black
+  margin-bottom: 1.25vh
+  transition: opacity 1s
+
+#return-link
+  &:hover
+    @include hover_opacity
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+//Pet projects container
+
+.carousel-3d-btn
+  background-color: $button-color
+  border: none
+  font-size: 2.5vw
+  &:hover
+    @include hover_opacity
+
+.card
+  position: absolute
+  width: 20vw
+  transition: transform 2s
+
+.card-img-top
+  height: 32.5vh
+
+.card-body
+  background-color: white
+
+.card-title
+  @include title
+  font-weight: bolder
+
+.card-title, .card-text
+  color: black
+
+#projects-container
+  @include d-flex
+  height: 100vh
+
+// !!! gap = 3.875vw or gap = 2.87vw
+// fist to last -> 54.75vw
+// !!! 30.375vw
+// !!! 53.75vw
+
+#trello-card
+  z-index: 2
+
+#time-manager-card
+  transform: scale(1.35)
+  z-index: 3
+
+#audio-manager-card
+  z-index: 1
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+//Timer container
+.timer-button
+  width: 7.5vw
+  height: 7.5vw
+  padding: 0
+  background-color: $button-color
+  color: aliceblue
+  font-size: 1.5vw
+  font-weight: bold
+  border: .5vw double aliceblue
+  border-radius: 10vw
+  transition: background-color .5s, color .5s, border .5s
+  &:hover
+    background-color: aliceblue
+    color: $button-color
+    border: .5vw double $button-color
+
+#time-msg-container
+  margin-top: 37.5vh
+
+#time-msg
+  font-size: 5vw
+
+#timer-buttons
+  margin-top: 27.5vh
+  gap: 15vw
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+//Audio manager container
+
+#audio-manager
+  @include d-flex
+  min-height: 100vh
+
+//--------------------------------------------------------------------------------------------------------------------------------
+
+//ANIMATIONS
+
+//Container animation
+
+@keyframes page-blur
+  0%
+    -webkit-filter: blur(blur_reduction(0))
+  50%
+    -webkit-filter: blur(blur_reduction(1))
+  100%
+    -webkit-filter: blur(blur_reduction(2))
+
+//Form animation
+
+@keyframes slide
+  0%
+    top: -50vh
+  50%
+    top: 5vh
+  100%
+    top: 50vh
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+
+/*MEDIA QUERIES*/
+
+//XS screen
+
+@media only screen and (max-width: 539px)
+  header
+    height: 22.5vh
+  footer
+    div
+      margin-left: 10vw
+      margin-right: 10vw
+  .side-list-name
+    margin-left: 2.5vw
+  .side-list
+    padding-left: 2.5vw
+  #pfp-button, #pfp
+    width: 8vw
+    height: 8vw
+  #side-panel
+    border-top: .125vh solid $chrome-dark-gray
+
+//SM screen
+
+@media only screen and (min-width: 540px) and (max-width: 719px)
+  header
+    height: 22.5vh
+  .side-list-name
+    margin-left: 2.5vw
+  .side-list
+    padding-left: 2.5vw
+  #pfp-button, #pfp
+    width: 8vw
+    height: 8vw
+  #side-panel
+    border-top: .125vh solid $chrome-dark-gray
+
+//MD screen !!!
+
+@media only screen and (min-width: 720px) and (max-width: 959px)
+  header
+    height: 22.5vh
+  .side-list-name
+    margin-left: 2.5vw
+  .side-list
+    padding-left: 2.5vw
+  #pfp-button, #pfp
+    width: 8vw
+    height: 8vw
+  #side-panel
+    border-top: .125vh solid $chrome-dark-gray
+
+//portrait mode
+@media only screen and (orientation: portrait)
+  //Tag selectors
+  html
+    font-size: 2.25vw
+  header
+    height: 12.5vh
+  //CV container
+  footer
+    div
+      margin-left: 2.5vw
+  .nav-link
+    font-size: 2.75vw
+  .list-name, .side-list-name
+    margin-left: 6.25vw
+  .main-list
+    &:not(#experience-list)
+      padding-left: 6.25vw
+  .side-list
+    padding-left: 6.25vw
+  #experience-list
+    dd, dt
+      padding-left: 6.25vw
+  .footer-heading
+    font-size: 2.5vw
+  .network-icon
+    width: 5vw
+    height: 5vw
+  .footer-list
+    li
+      font-size: 2.25vw
+  #pfp-button, #pfp
+    width: 20vw
+    height: 20vw
+  #side-panel
+    border-top: .125vh solid $chrome-dark-gray
+  //Form container
+  input
+    &:not(input[type=submit])
+      width: 37.5vw
+    &[type=submit]
+      width: 32.5vw
+  .label-text
+    font-size: 2.5vw
+  #form
+    width: 75vw
+  //Pet projects container
+  .carousel-caption
+    margin-bottom: 2.5vh
+  .carousel-heading
+    font-size: 4.25vw
+  .carousel-par
+    font-size: 4vw
+
+
+/*LG screen*/
+@media only screen and (min-width: 960px) and (max-width: 1139px)
+  header
+    height: 22.5vh
+  #pfp-button, #pfp
+    width: 8vw
+    height: 8vw
+  #side-panel
+    border-left: .125vw solid $chrome-dark-gray
+
+/*XL screen*/
+@media only screen and (min-width: 1140px) and (max-width: 1319px)
+  header
+    height: 22.5vh
+  #pfp-button, #pfp
+    width: 8vw
+    height: 8vw
+  #side-panel
+    border-left: .125vw solid $chrome-dark-gray
+
+/*XXL screen*/
+@media only screen and (min-width: 1320px)
+  header
+    height: 22.5vh
+  #pfp-button, #pfp
+    width: 8vw
+    height: 8vw
+  #side-panel
+    border-left: .125vw solid $chrome-dark-gray
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+
+// SCROLLBAR
+
+// width
+::-webkit-scrollbar
+  width: 1vw
+  background-color: $dark
+
+// Track
+::-webkit-scrollbar-track
+  border-radius: 10px
+
+// Handle
+::-webkit-scrollbar-thumb
+  background-color: $gray

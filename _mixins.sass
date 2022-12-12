@@ -1,0 +1,15 @@
+//Mixins
+@mixin d-flex($f-justify: space-around, $f-align: center)
+  display: flex
+  justify-content: $f-justify
+  align-items: $f-align
+
+@mixin translate($pos : absolute, $l_cord: 50%, $t_cord: 50%, $translate: (-50%, -50%))
+  position: $pos
+  left: $l_cord
+  top: $t_cord
+  translate: $translate
+
+@mixin hover_opacity($text_color: aliceblue, $op: .75)
+  opacity: $op
+  color: $text_color
